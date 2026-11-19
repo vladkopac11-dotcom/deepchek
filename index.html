@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детектор діпфейків</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка сайту -->
+    <header class="header">
+        <div class="logo">DeepCheck</div>
+        
+        <nav class="menu">
+            <a href="#about" class="menu-link">Про проєкт</a>
+            <a href="#detector" class="menu-link active">Детектор</a>
+            <a href="#how" class="menu-link">Як це працює</a>
+            <a href="#schools" class="menu-link">Для навчання</a>
+            <a href="#detector" class="btn-orange">Спробувати</a>
+        </nav>
+
+        <div class="lang">
+            <span class="flag-dot"></span> Укр
+        </div>
+    </header>
+
+    <!-- Основна частина -->
+    <main class="container">
+        <section class="intro">
+            <h1>Детектор діпфейків</h1>
+            <p class="subtitle">
+                Досліджуйте, аналізуйте та виявляйте штучні маніпуляції у відео, фото та аудіо. Створено для безпеки та навчання.
+            </p>
+        </section>
+
+        <!-- Блок детектора -->
+        <section id="detector" class="detector-box">
+            <!-- Кнопки перемикання -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab('media', this)">МЕДІА</button>
+                <button class="tab-btn" onclick="openTab('text', this)">ТЕКСТ</button>
+            </div>
+
+            <!-- Завантаження файлів -->
+            <div id="media-zone" class="upload-block" onclick="document.getElementById('fileInput').click()">
+                <input type="file" id="fileInput" hidden onchange="showFileName(this)">
+                
+                <div class="upload-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 19V5M5 12l7-7 7 7"/>
+                    </svg>
+                </div>
+
+                <div class="upload-text">
+                    <h3 id="file-title">Натисніть сюди або перетягніть файл для перевірки</h3>
+                    <p class="file-types">Відео • Зображення • Аудіо (до 100 МБ)</p>
+                </div>
+            </div>
+
+            <!-- Перевірка тексту -->
+            <div id="text-zone" class="text-block" style="display: none;">
+                <textarea placeholder="Вставте текст новини або повідомлення для перевірки..."></textarea>
+                <button class="btn-blue" onclick="checkText()">Перевірити текст</button>
+            </div>
+
+            <!-- Теги -->
+            <div class="tags">
+                <span class="tag">Аналіз облич</span>
+                <span class="tag">Перевірка голосу</span>
+                <span class="tag">Пошук артефактів</span>
+            </div>
+        </section>
+
+        <!-- Нижні картки -->
+        <section id="about" class="cards">
+            <div class="card">
+                <div class="card-top">
+                    <div class="icon-box blue">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Захист та приватність</h3>
+                </div>
+                <p>Усі завантажені медіафайли обробляються локально та автоматично видаляються одразу після завершення аналізу.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="icon-box purple">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7" rx="1"/>
+                            <rect x="14" y="3" width="7" height="7" rx="1"/>
+                            <rect x="14" y="14" width="7" height="7" rx="1"/>
+                            <rect x="3" y="14" width="7" height="7" rx="1"/>
+                        </svg>
+                    </div>
+                    <h3>Мультимодальний аналіз</h3>
+                </div>
+                <p>Комплексна перевірка мікровиразів обличчя, частотного спектру голосу та цифрових слідів нейромереж у відео, фото й аудіо.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="icon-box green">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Швидкий результат</h3>
+                </div>
+                <p>Алгоритм оцінює ймовірність втручання штучного інтелекту за лічені секунди та показує зрозумілий звіт у відсотках.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Підключення окремого файлу зі скриптами -->
+    <script src="script.js"></script>
+</body>
+</html>
